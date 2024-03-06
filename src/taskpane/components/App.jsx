@@ -1,11 +1,10 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Header from "./Header";
-import HeroList from "./HeroList";
-import TextInsertion from "./TextInsertion";
 import { makeStyles } from "@fluentui/react-components";
 import { HashRouter, Route, Switch, Link } from "react-router-dom";
-import { Ribbon24Regular, LockOpen24Regular, DesignIdeas24Regular } from "@fluentui/react-icons";
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 const useStyles = makeStyles({
   root: {
@@ -25,44 +24,25 @@ const Users = () => {
   return <h2>Users</h2>;
 };
 
-const App = (props) => {
+const App = () => {
+  const [value, setValue] = React.useState(0);
   const styles = useStyles();
-  // The list items are static and won't change at runtime,
-  // so this should be an ordinary const, not a part of state.
-  const listItems = [
-    {
-      icon: <Ribbon24Regular />,
-      primaryText: "Achieve more with Office integration",
-    },
-    {
-      icon: <LockOpen24Regular />,
-      primaryText: "Unlock features and functionality",
-    },
-    {
-      icon: <DesignIdeas24Regular />,
-      primaryText: "Create and visualize like a pro",
-    },
-  ];
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
-      <HeroList message="Discover what this add-in can do for you today!" items={listItems} />
       <HashRouter>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
+          <Box sx={{ width: "100%" }}>
+            <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" role="navigation">
+              <Tab label="Home" to="/" component={Link} />
+              <Tab label="About" to="/about" component={Link} />
+              <Tab label="Users" to="/users" component={Link} />
+            </Tabs>
+          </Box>
+
           <Switch>
             <Route path="/about">
               <About />
@@ -76,7 +56,6 @@ const App = (props) => {
           </Switch>
         </div>
       </HashRouter>
-      <TextInsertion />
     </div>
   );
 };
