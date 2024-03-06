@@ -10,6 +10,9 @@ const useStyles = makeStyles({
   root: {
     minHeight: "100vh",
   },
+  tabsContainer: {
+    overflowX: "auto",
+  },
 });
 
 const Home = () => {
@@ -36,11 +39,13 @@ const App = () => {
       <HashRouter>
         <div>
           <Box sx={{ width: "100%" }}>
-            <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" role="navigation">
-              <Tab label="Home" to="/" component={Link} />
-              <Tab label="About" to="/about" component={Link} />
-              <Tab label="Users" to="/users" component={Link} />
-            </Tabs>
+            <div className={styles.tabsContainer}>
+              <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" role="navigation">
+                <Tab label="Home" to="/" component={Link} />
+                <Tab label="About" to="/about" component={Link} />
+                <Tab label="Users" to="/users" component={Link} />
+              </Tabs>
+            </div>
           </Box>
 
           <Switch>
