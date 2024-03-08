@@ -5,6 +5,9 @@ import { HashRouter, Route, Switch, Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import HomeScreen from "./screens/HomeScreen";
+import UsersScreen from "./screens/UsersScreen";
+import AboutScreen from "./screens/AboutScreen";
 
 const useStyles = makeStyles({
   root: {
@@ -15,17 +18,6 @@ const useStyles = makeStyles({
   },
 });
 
-const Home = () => {
-  return <h2>Home</h2>;
-};
-
-const About = () => {
-  return <h2>About</h2>;
-};
-
-const Users = () => {
-  return <h2>Users</h2>;
-};
 
 const App = () => {
   const [value, setValue] = React.useState(0);
@@ -50,13 +42,13 @@ const App = () => {
 
           <Switch>
             <Route path="/about">
-              <About />
+              <AboutScreen />
             </Route>
             <Route path="/users">
-              <Users />
+              <UsersScreen />
             </Route>
             <Route path="/">
-              <Home />
+              <HomeScreen />
             </Route>
           </Switch>
         </div>
