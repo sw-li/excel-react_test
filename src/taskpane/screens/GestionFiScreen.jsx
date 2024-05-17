@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
+import handleNouvelleLigne from "../../functions/newRowInTable";
 
 const Root = styled(Box)({
   padding: "32px",
@@ -44,50 +45,6 @@ const Notification = styled(Box)({
 
 export default function GestionFicScreen() {
   const [notification, setNotification] = useState("");
-  const [isOfficeInitialized, setIsOfficeInitialized] = useState(false);
-
-  useEffect(() => {
-    Office.onReady((info) => {
-      if (info.host === Office.HostType.Excel) {
-        setIsOfficeInitialized(true);
-      }
-    });
-  }, []);
-
-  const handleNouvelleLigne = async () => {
-    if (!isOfficeInitialized) {
-      setNotification("Office is not initialized yet.");
-      return;
-    }
-
-    try {
-      await Excel.run(async (context) => {
-        const currentWorksheet = context.workbook.worksheets.getActiveWorksheet();
-        const tables = currentWorksheet.tables.load("items");
-        await context.sync();
-
-        if (tables.items.length > 0) {
-          const firstTable = tables.items[0];
-          const column = firstTable.columns.getItem(`N° d'ordre`);
-          column.load("values");
-          await context.sync();
-
-          let orderValues = column.values.slice(1).flat();
-          let currentOrder = Math.max(...orderValues);
-
-          // Add a new row to the table
-          firstTable.rows.add(null, [[currentOrder + 1, null, null]]);
-          await context.sync();
-
-          setNotification("New row added to the first table.");
-        } else {
-          setNotification("No tables found on the current sheet.");
-        }
-      });
-    } catch (error) {
-      setNotification(`Error: ${error.message}`);
-    }
-  };
 
   return (
     <Root>
@@ -96,7 +53,7 @@ export default function GestionFicScreen() {
         Page dédiée pour accéder des fonctions de gestion fi pour libérer le fichier
       </Description>
       <ButtonContainer>
-        <StyledButton variant="contained" color="primary" onClick={handleNouvelleLigne}>
+        <StyledButton variant="contained" color="primary" onClick={() => handleNouvelleLigne(setNotification)}>
           Nouvelle Ligne
         </StyledButton>
         <StyledButton variant="contained" color="secondary" onClick={handleNouvelIndice}>
