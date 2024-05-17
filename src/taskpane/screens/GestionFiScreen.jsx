@@ -32,19 +32,25 @@ const StyledButton = styled(Button)({
   minWidth: "150px",
 });
 
-const Notification = styled(Box)({
+const Notification = styled(Box)(({ isError }) => ({
   position: "fixed",
   bottom: 0,
   width: "100%",
-  backgroundColor: "#f44336",
+  backgroundColor: isError ? "#f44336" : "#4caf50",
   color: "white",
   textAlign: "center",
   padding: "16px",
   zIndex: 1000,
-});
+}));
 
 export default function GestionFicScreen() {
   const [notification, setNotification] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  const handleSetNotification = (message, error = false) => {
+    setNotification(message);
+    setIsError(error);
+  };
 
   return (
     <Root>
@@ -53,7 +59,7 @@ export default function GestionFicScreen() {
         Page dédiée pour accéder des fonctions de gestion fi pour libérer le fichier
       </Description>
       <ButtonContainer>
-        <StyledButton variant="contained" color="primary" onClick={() => handleNouvelleLigne(setNotification)}>
+        <StyledButton variant="contained" color="primary" onClick={() => handleNouvelleLigne(handleSetNotification)}>
           Nouvelle Ligne
         </StyledButton>
         <StyledButton variant="contained" color="secondary" onClick={handleNouvelIndice}>
@@ -63,7 +69,7 @@ export default function GestionFicScreen() {
           Exporter Excel
         </StyledButton>
       </ButtonContainer>
-      {notification && <Notification>{notification}</Notification>}
+      {notification && <Notification isError={isError}>{notification}</Notification>}
     </Root>
   );
 }

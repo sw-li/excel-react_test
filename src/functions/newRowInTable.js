@@ -28,13 +28,13 @@ const handleNouvelleLigne = async (setNotification) => {
         firstTable.rows.add(null, [newRow]);
         await context.sync();
 
-        setNotification("New row added to the first table.");
+        setNotification("New row added to the first table.", false);
       } else {
-        setNotification("No tables found on the current sheet.");
+        setNotification("No tables found on the current sheet.", true);
       }
     });
   } catch (error) {
-    setNotification(`Error: ${error.message}`);
+    setNotification(`Error: ${error.message}`, true);
   }
 };
 
