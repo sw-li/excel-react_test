@@ -9,6 +9,7 @@ import HomeScreen from "./screens/HomeScreen";
 import UsersScreen from "./screens/UsersScreen";
 import AboutScreen from "./screens/AboutScreen";
 import SicScreen from "./screens/SicScreen";
+import GestionFicScreen from "./screens/GestionFiScreen";
 
 const useStyles = makeStyles({
   root: {
@@ -37,22 +38,26 @@ const App = () => {
                 <Tab label="About" to="/about" component={Link} />
                 <Tab label="Users" to="/users" component={Link} />
                 <Tab label="SIC" to="/sic" component={Link} />
+                <Tab label="Gestion Fi" to="/fi" component={Link} />
               </Tabs>
             </div>
           </Box>
 
           <Switch>
+            <Route exact path="/">
+              <HomeScreen />
+            </Route>
             <Route path="/about">
               <AboutScreen />
             </Route>
             <Route path="/users">
               <UsersScreen />
             </Route>
-            <Route path="/">
-              <HomeScreen />
-            </Route>
             <Route path="/sic">
               <SicScreen />
+            </Route>
+            <Route path="/fi">
+              <GestionFicScreen />
             </Route>
           </Switch>
         </div>
