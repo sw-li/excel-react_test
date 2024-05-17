@@ -65,9 +65,6 @@ export default function GestionFicScreen() {
         <StyledButton variant="contained" color="secondary" onClick={handleNouvelIndice}>
           Nouvel Indice
         </StyledButton>
-        <StyledButton variant="contained" color="success" onClick={handleExporterExcel}>
-          Exporter Excel
-        </StyledButton>
       </ButtonContainer>
       {notification && <Notification isError={isError}>{notification}</Notification>}
     </Root>
@@ -75,9 +72,5 @@ export default function GestionFicScreen() {
 }
 
 const handleNouvelIndice = async () => {
-  // Add your logic here
-};
-
-const handleExporterExcel = async () => {
   // Add your logic here
 };
