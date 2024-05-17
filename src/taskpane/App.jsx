@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import HomeScreen from "./screens/HomeScreen";
 import UsersScreen from "./screens/UsersScreen";
 import AboutScreen from "./screens/AboutScreen";
+import SicScreen from "./screens/SicScreen";
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +18,6 @@ const useStyles = makeStyles({
     overflowX: "auto",
   },
 });
-
 
 const App = () => {
   const [value, setValue] = React.useState(0);
@@ -36,6 +36,7 @@ const App = () => {
                 <Tab label="Home" to="/" component={Link} />
                 <Tab label="About" to="/about" component={Link} />
                 <Tab label="Users" to="/users" component={Link} />
+                <Tab label="SIC" to="/sic" component={Link} />
               </Tabs>
             </div>
           </Box>
@@ -49,6 +50,9 @@ const App = () => {
             </Route>
             <Route path="/">
               <HomeScreen />
+            </Route>
+            <Route path="/sic">
+              <SicScreen />
             </Route>
           </Switch>
         </div>
