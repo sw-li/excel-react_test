@@ -93,7 +93,7 @@ const ChatScreen = () => {
           variant="outlined"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Poser votre question à notre chatbot..."
+          placeholder="Posez une question à notre expert Super DO..."
         />
         <Button variant="contained" color="primary" onClick={handleSendMessage}>
           Send
