@@ -35,8 +35,8 @@ const App = () => {
             <div className={styles.tabsContainer}>
               <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" role="navigation">
                 <Tab label="Home" to="/" component={Link} />
-                <Tab label="About" to="/about" component={Link} />
-                <Tab label="Users" to="/users" component={Link} />
+                {/* <Tab label="About" to="/about" component={Link} />
+                <Tab label="Users" to="/users" component={Link} /> */}
                 <Tab label="SIC" to="/sic" component={Link} />
                 <Tab label="Gestion Fi" to="/fi" component={Link} />
               </Tabs>
@@ -47,12 +47,12 @@ const App = () => {
             <Route exact path="/">
               <HomeScreen />
             </Route>
-            <Route path="/about">
+            {/* <Route path="/about">
               <AboutScreen />
             </Route>
             <Route path="/users">
               <UsersScreen />
-            </Route>
+            </Route> */}
             <Route path="/sic">
               <SicScreen />
             </Route>
