@@ -3,7 +3,8 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
-import handleNouvelleLigne from "../../functions/newRowInTable";
+import handleNouvelleLigne from "../../functions/handleNouvelleLigne";
+import handleExportRecap from "../../functions/handleExportRecap";
 
 const Root = styled(Box)({
   padding: "32px",
@@ -64,6 +65,13 @@ export default function GestionFicScreen() {
         </StyledButton>
         <StyledButton variant="contained" color="secondary" onClick={handleNouvelIndice}>
           Nouvel Indice
+        </StyledButton>
+        <StyledButton
+          variant="contained"
+          style={{ backgroundColor: "green", color: "white" }}
+          onClick={() => handleExportRecap(handleSetNotification)}
+        >
+          Export RECAP
         </StyledButton>
       </ButtonContainer>
       {notification && <Notification isError={isError}>{notification}</Notification>}
