@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import HomeScreen from "./screens/HomeScreen";
 import UsersScreen from "./screens/UsersScreen";
 import AboutScreen from "./screens/AboutScreen";
+import ContactSearchScreen from "./screens/ContactSearchScreen";
 import ChatScreen from "./screens/ChatScreen";
 import SicScreen from "./screens/SicScreen";
 import GestionFicScreen from "./screens/GestionFiScreen";
@@ -38,6 +39,7 @@ const App = () => {
                 <Tab label="Home" to="/" component={Link} />
                 {/* <Tab label="About" to="/about" component={Link} />
                 <Tab label="Users" to="/users" component={Link} /> */}
+                <Tab label="CONTACT" to="/contact" component={Link} />
                 <Tab label="SIC" to="/sic" component={Link} />
                 <Tab label="CHAT" to="/chat" component={Link} />
                 <Tab label="Gestion Fi" to="/fi" component={Link} />
@@ -55,6 +57,9 @@ const App = () => {
             <Route path="/users">
               <UsersScreen />
             </Route> */}
+            <Route path="/contact">
+              <ContactSearchScreen />
+            </Route>
             <Route path="/sic">
               <SicScreen />
             </Route>
