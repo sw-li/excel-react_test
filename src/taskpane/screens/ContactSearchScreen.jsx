@@ -85,9 +85,9 @@ const ContactSearchScreen = () => {
 
   return (
     <Root maxWidth="md">
-      <Header variant="h4">Contact Information Search</Header>
+      <Header variant="h4">Annuaire CICAD</Header>
       <Description variant="body1">
-        Use the tabs below to search for contact information by either person name or company name.
+        Réchercher une personne ou une entité dans notre base de données
       </Description>
       <TabContainer>
         <Tabs

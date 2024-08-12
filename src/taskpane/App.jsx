@@ -39,7 +39,7 @@ const App = () => {
                 <Tab label="Home" to="/" component={Link} />
                 {/* <Tab label="About" to="/about" component={Link} />
                 <Tab label="Users" to="/users" component={Link} /> */}
-                <Tab label="CONTACT" to="/contact" component={Link} />
+                <Tab label="ANNUAIRE" to="/annuaire" component={Link} />
                 <Tab label="SIC" to="/sic" component={Link} />
                 <Tab label="CHAT" to="/chat" component={Link} />
                 <Tab label="Gestion Fi" to="/fi" component={Link} />
@@ -57,7 +57,7 @@ const App = () => {
             <Route path="/users">
               <UsersScreen />
             </Route> */}
-            <Route path="/contact">
+            <Route path="/annuaire">
               <ContactSearchScreen />
             </Route>
             <Route path="/sic">
