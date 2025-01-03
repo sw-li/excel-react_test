@@ -6,8 +6,6 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import HomeScreen from "./screens/HomeScreen";
-import UsersScreen from "./screens/UsersScreen";
-import AboutScreen from "./screens/AboutScreen";
 import ContactSearchScreen from "./screens/ContactSearchScreen";
 import ChatScreen from "./screens/ChatScreen";
 import SicScreen from "./screens/SicScreen";
